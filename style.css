@@ -1,0 +1,646 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #121212; 
+    color: #f5f5f5; 
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+.Conteneur {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.Espacement {
+    padding: 80px 0;
+}
+
+.Cache {
+    display: none !important;
+}
+
+.LienEvitement {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background-color: #5db5f0;
+    color: white;
+    padding: 10px;
+    z-index: 9999;
+}
+
+.LienEvitement:focus {
+    top: 0;
+}
+
+.Apparition {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease-out;
+}
+
+.Apparition.Visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.BarreNav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #121212;
+    border-bottom: 1px solid #333;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.FlexEntete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.Point {
+    color: #5db5f0;
+    font-size: 2rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav a:hover {
+    color: #5db5f0;
+}
+
+.Banniere {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.ContenuBanniere {
+    max-width: 800px;
+}
+
+.Banniere h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.TexteDegrade {
+    color: #5db5f0;
+}
+
+.BoutonHero {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 40px;
+    background-color: #5db5f0;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.BoutonHero:hover {
+    background-color: #4aa3df;
+    transform: translateY(-3px);
+}
+
+.FlecheBas {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    border-bottom: 3px solid #5db5f0; 
+    border-right: 3px solid #5db5f0;  
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+}
+
+.Chronologie {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.Chronologie::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Etape {
+    width: 50%;
+    padding: 0 40px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.Etape:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.Etape:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.PointEtape {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #5db5f0;
+    border: 4px solid #121212;
+    border-radius: 50%;
+    top: 0;
+    z-index: 2;
+}
+
+.Etape:nth-child(odd) .PointEtape { right: -8px; }
+.Etape:nth-child(even) .PointEtape { left: -8px; }
+
+.Date {
+    display: block;
+    color: #5db5f0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.ContenuEtape {
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.ContenuEtape h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.ContenuEtape p {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+.ImgParcours {
+    width: 100px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #5db5f0;
+    flex-shrink: 0;
+}
+
+.CarteAccentuee {
+    border-color: #5db5f0;
+}
+
+.FlexAujourdhui {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.FlexAujourdhui p {
+    margin: 0;
+}
+
+.ConclusionParcours {
+    text-align: center;
+    max-width: 800px;
+    margin: 60px auto 0 auto;
+    padding: 20px;
+    background: rgba(38, 46, 108, 0.05);
+    border-radius: 15px;
+}
+
+.ConclusionParcours blockquote {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    color: #5db5f0;
+    margin-bottom: 10px;
+}
+
+.Grille {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 20px 180px 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.Grille::-webkit-scrollbar {
+    display: none;
+}
+
+.CarteGalerie {
+    flex: 0 0 200px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ConteneurImgGalerie {
+    width: 160px;
+    height: 160px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 auto 10px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.CarteGalerie img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.CarteGalerie:hover img {
+    transform: scale(1.1);
+}
+
+.LienSpotify {
+    color: #5db5f0;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.LienSpotify:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.Fleche {
+    position: absolute;
+    right: 0;
+    top: 20%;
+    font-size: 3rem;
+    color: rgba(255,255,255,0.2);
+}
+
+#InfoSurvol {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 20px;
+    min-height: 25px;
+}
+
+.BoiteRaison {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    background-color: #5db5f0;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.BoiteRaison::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #5db5f0 transparent;
+}
+
+.CarteGalerie:hover .BoiteRaison {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.GrilleCommunaute {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.CarteSon {
+    background-color: #1E1E1E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.EnteteSon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.AvatarLettre {
+    width: 40px;
+    height: 40px;
+    background-color: #5db5f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.CitationSon {
+    font-style: italic;
+    color: #bbb;
+    background-color: #252525;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.ConteneurCarrousel {
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    background-color: #1E1E1E;
+}
+
+.PisteCarrousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.CartePiste {
+    min-width: 100%;
+    display: flex;
+}
+
+.ConteneurImgPiste {
+    flex: 0 0 40%;
+}
+
+.ImgPiste {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ContenuPiste {
+    padding: 30px;
+    flex: 1;
+}
+
+.BoutonCarrousel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+.BoutonCarrousel:hover { opacity: 1; }
+.Prev { left: 20px; }
+.Next { right: 20px; }
+
+.BoiteFormulaire {
+    background-color: #1E1E1E;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.Champ {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #121212;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #5db5f0;
+}
+
+.BoutonBrillant {
+    width: 100%;
+    padding: 15px;
+    background-color: #5db5f0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.BoutonBrillant:hover {
+    background-color: #4aa3df;
+}
+
+.MessageSuccesStyle {
+    color: #5db5f0;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 60px 0;
+    margin-top: 80px;
+    background-color: #1E1E1E;
+    color: #aaa;
+}
+
+.LienSimple {
+    background: none;
+    border: none;
+    color: #5db5f0;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.Fenetre {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.ContenuImage img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.ContenuTexte, .CarteVerre.ModaleMentions {
+    background-color: #1E1E1E;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 600px;
+    position: relative;
+}
+
+.BoutonFermer {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.TexteLegal ul {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #fff; 
+    background: none;       
+}
+
+.LienContact {
+    color: #5db5f0;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .FlexEntete {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .Banniere h1 {
+        font-size: 2.5rem;
+    }
+
+    .CartePiste {
+        flex-direction: column;
+    }
+
+    .ConteneurImgPiste {
+        flex: none;
+        height: 250px;
+    }
+    
+    .Chronologie::after {
+        left: 20px;
+    }
+
+    .Etape {
+        width: 100%;
+        padding-left: 50px;
+        text-align: left;
+    }
+
+    .Etape:nth-child(odd) {
+        text-align: left;
+    }
+
+    .PointEtape {
+        left: 12px !important;
+        right: auto;
+    }
+
+    .FlexAujourdhui {
+        flex-direction: column;
+        text-align: center;
+    }
+}
